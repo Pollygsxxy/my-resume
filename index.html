@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>郭舒月 - 个人作品集与履历 | CRA临床研究岗位</title>
+  <style>
+    /* 1. 全局低饱和专业配色 */
+    :root {
+      --bg-color: #f7f8f9;        /* 柔和米灰底色 */
+      --card-bg: #ffffff;         /* 纯白卡片背景 */
+      --text-main: #2b303a;       /* 低饱和炭灰主文字 */
+      --text-muted: #5a626a;      /* 次要灰色文字 */
+      --accent-color: #8b3a42;    /* 经典酒红/领带红点缀 */
+      --border-color: #e9ecef;    /* 浅灰边框 */
+      --tag-bg: #f1f3f5;          /* 标签背景色 */
+      --highlight-bg: #fdf2f2;    /* 高亮标签背景 */
+      --shadow-sm: 0 2px 8px rgba(0,0,0,0.04);
+      --radius: 12px;
+    }
+
+    /* 2. 基础重置 */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      background-color: var(--bg-color);
+      color: var(--text-main);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .container {
+      max-width: 840px;
+      margin: 0 auto;
+      padding: 20px 16px 60px 16px;
+    }
+
+    /* 3. 头部卡片 */
+    header.profile-card {
+      background: var(--card-bg);
+      border-radius: var(--radius);
+      padding: 28px 24px;
+      margin-bottom: 20px;
+      box-shadow: var(--shadow-sm);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      border: 1px solid var(--border-color);
+    }
+
+    .avatar-wrapper {
+      width: 108px;
+      height: 108px;
+      border-radius: 50%;
+      overflow: hidden;
+      margin-bottom: 16px;
+      border: 3px solid var(--border-color);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .avatar-wrapper img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .profile-info h1 {
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: var(--text-main);
+      margin-bottom: 4px;
+    }
+
+    .profile-info .title {
+      font-size: 0.98rem;
+      color: var(--accent-color);
+      font-weight: 600;
+      margin-bottom: 12px;
+    }
+
+    .profile-info .bio {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      max-width: 680px;
+      margin: 0 auto 16px auto;
+      text-align: justify;
+      line-height: 1.65;
+    }
+
+    .education-badges {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 8px;
+    }
+
+    .edu-badge {
+      font-size: 0.82rem;
+      background-color: var(--tag-bg);
+      color: var(--text-main);
+      padding: 5px 12px;
+      border-radius: 20px;
+      border: 1px solid var(--border-color);
+    }
+
+    /* 4. 通用模块卡片 */
+    section {
+      background: var(--card-bg);
+      border-radius: var(--radius);
+      padding: 24px 22px;
+      margin-bottom: 20px;
+      box-shadow: var(--shadow-sm);
+      border: 1px solid var(--border-color);
+    }
+
+    .section-title {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--text-main);
+      margin-bottom: 16px;
+      padding-bottom: 8px;
+      border-bottom: 2px solid var(--tag-bg);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .section-title::before {
+      content: "";
+      display: inline-block;
+      width: 4px;
+      height: 16px;
+      background-color: var(--accent-color);
+      border-radius: 2px;
+    }
+
+    /* 核心亮点 */
+    .highlight-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .highlight-item {
+      font-size: 0.9rem;
+      color: var(--text-main);
+      background-color: var(--bg-color);
+      padding: 12px 14px;
+      border-radius: 8px;
+      border-left: 3px solid var(--accent-color);
+      line-height: 1.6;
+    }
+
+    .highlight-item strong {
+      color: var(--accent-color);
+    }
+
+    /* 技能标签 */
+    .skills-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .skill-tag {
+      background-color: var(--tag-bg);
+      color: var(--text-main);
+      font-size: 0.85rem;
+      padding: 6px 12px;
+      border-radius: 6px;
+      font-weight: 500;
+    }
+
+    .skill-tag.highlight {
+      background-color: var(--highlight-bg);
+      color: var(--accent-color);
+      border: 1px solid #f8d7da;
+    }
+
+    /* 经历板块（科研 & 工作） */
+    .experience-block {
+      margin-bottom: 20px;
+    }
+
+    .experience-block:last-child {
+      margin-bottom: 0;
+    }
+
+    .exp-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      flex-wrap: wrap;
+      margin-bottom: 4px;
+    }
+
+    .exp-title {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--text-main);
+    }
+
+    .exp-time {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      font-weight: 500;
+    }
+
+    .exp-sub {
+      font-size: 0.88rem;
+      color: var(--accent-color);
+      font-weight: 600;
+      margin-bottom: 10px;
+    }
+
+    .exp-bullets {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      padding-left: 0;
+    }
+
+    .exp-bullets li {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      position: relative;
+      padding-left: 18px;
+      line-height: 1.6;
+      text-align: justify;
+    }
+
+    .exp-bullets li::before {
+      content: "▪";
+      position: absolute;
+      left: 0;
+      color: var(--accent-color);
+      font-size: 0.9rem;
+    }
+
+    /* 发表文章 */
+    .pub-card {
+      background-color: var(--bg-color);
+      padding: 14px;
+      border-radius: 8px;
+      margin-bottom: 10px;
+      border: 1px solid var(--border-color);
+    }
+
+    .pub-card:last-child {
+      margin-bottom: 0;
+    }
+
+    .pub-title {
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--text-main);
+      margin-bottom: 6px;
+      line-height: 1.4;
+    }
+
+    .pub-journal {
+      font-size: 0.82rem;
+      color: var(--accent-color);
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+
+    .pub-meta {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    /* 联系方式 */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 12px;
+    }
+
+    .contact-card {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--bg-color);
+      padding: 12px 14px;
+      border-radius: 8px;
+      border: 1px solid var(--border-color);
+      color: var(--text-main);
+      font-size: 0.88rem;
+      text-decoration: none;
+    }
+
+    footer {
+      text-align: center;
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      margin-top: 30px;
+    }
+
+    /* 移动端/PC响应式调整 */
+    @media (min-width: 640px) {
+      header.profile-card {
+        flex-direction: row;
+        text-align: left;
+        gap: 24px;
+      }
+      .avatar-wrapper {
+        margin-bottom: 0;
+        flex-shrink: 0;
+      }
+      .education-badges {
+        justify-content: flex-start;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    
+    <!-- 个人简介模块 -->
+    <header class="profile-card">
+      <div class="avatar-wrapper">
+        <img src="68852fed5648bfedc2aad1458220f89a.jpg" alt="郭舒月寸照">
+      </div>
+      <div class="profile-info">
+        <h1>郭舒月</h1>
+        <div class="title">CRA / 临床研究相关岗位 | 基础医学硕士</div>
+        <p class="bio">
+          阳光务实，严谨细致，具备良好的自学与探求问题的思维。硕士期间的数据分析与科研训练塑造了我严谨的数据敏感度与逻辑分析能力；以往的眼科视光机构工作经历培养了我优秀的人际沟通、团队协作及服务意识。能够快速适应新环境，正积极补充临床试验相关知识，立志在临床研究领域深耕发展。
+        </p>
+        <div class="education-badges">
+          <span class="edu-badge">暨南大学 · 基础医学硕士 (病理学)</span>
+          <span class="edu-badge">辽宁何氏医学院 · 眼视光学学士</span>
+        </div>
+      </div>
+    </header>
+
+    <!-- 核心优势 Highlights -->
+    <section>
+      <h2 class="section-title">核心亮点 Highlights</h2>
+      <ul class="highlight-list">
+        <li class="highlight-item">
+          <strong>扎实的临床数据分析与科研转化能力：</strong>熟练掌握 R语言、SPSS、GraphPad、X-TILE 等软件，具备依托临床患者试验数据与多组学数据进行预测模型构建、数据清洗与统计分析的实操经验（发表SCI 1篇、北大核心1篇）。
+        </li>
+        <li class="highlight-item">
+          <strong>丰富的患者沟通与依从性管理经验：</strong>近2年眼科视光中心一线服务经验，精通眼科精密检查SOP，擅长与患者及家属进行高效价值沟通、缓解患者焦虑并提升配合度，具备良好的服务意识与人际协调能力。
+        </li>
+        <li class="highlight-item">
+          <strong>严谨的医学科研背景与高执行力：</strong>基础医学（病理学）专业背景，熟练掌握多项生物医学实验技能及科研绘图，具备较强的自学能力、逻辑分析能力与严谨的工作态度。
+        </li>
+      </ul>
+    </section>
+
+    <!-- 技能标签模块 -->
+    <section>
+      <h2 class="section-title">技能与专业工具</h2>
+      <div class="skills-grid">
+        <span class="skill-tag highlight">R语言数据分析与建模</span>
+        <span class="skill-tag highlight">SPSS / GraphPad Prism / X-TILE</span>
+        <span class="skill-tag highlight">大学英语六级 (CET-6)</span>
+        <span class="skill-tag">临床随访数据清洗与归档</span>
+        <span class="skill-tag">受试者/患者依从性管理</span>
+        <span class="skill-tag">医疗机构 SOP 规范执行</span>
+        <span class="skill-tag">科研绘图 (Origin / PS / AI)</span>
+        <span class="skill-tag">生物医学实验 (IHC / WB / QPCR)</span>
+        <span class="skill-tag">Office 办公套件</span>
+        <span class="skill-tag">GCP法规积极进修中</span>
+      </div>
+    </section>
+
+    <!-- 科研经历（针对CRA深度扩充） -->
+    <section>
+      <h2 class="section-title">科研经历与数据分析</h2>
+      
+      <div class="experience-block">
+        <div class="exp-header">
+          <span class="exp-title">非小细胞肺癌免疫治疗患者预后模型构建及临床意义分析</span>
+          <span class="exp-time">2024.12 - 至今</span>
+        </div>
+        <div class="exp-sub">硕士课题 · 核心研究人员</div>
+        <ul class="exp-bullets">
+          <li><strong>临床数据清洗与模型构建：</strong>依托已有的受试者队列临床随访与多组学数据进行转化研究，对多维度的临床患者数据进行规范化清洗、整理与统计，建立预测疗效的风险模型，辅助临床进行患者分层分析。</li>
+          <li><strong>机制探讨与转化方案辅助：</strong>聚焦患者免疫治疗响应差异，筛选敏感干预药物并验证其潜在机制，为临床联合用药及方案优化提供转化医学数据支持。</li>
+          <li><strong>数据分析软件应用：</strong>熟练运用 R语言、SPSS、X-TILE、GraphPad 等数据分析软件处理临床课题数据，并使用 AI、PS、Origin 等软件进行高质量科研绘图。</li>
+        </ul>
+      </div>
+
+    </section>
+
+    <!-- 工作经历（针对CRA胜任力扩充） -->
+    <section>
+      <h2 class="section-title">工作经历</h2>
+      
+      <div class="experience-block">
+        <div class="exp-header">
+          <span class="exp-title">角膜塑形镜验光技师</span>
+          <span class="exp-time">2020.04 - 2022.02</span>
+        </div>
+        <div class="exp-sub">沈阳爱瑞视眼科</div>
+        <ul class="exp-bullets">
+          <li><strong>规范化检查与SOP执行：</strong>精通塑形术前全套精密检查，严格遵循医疗标准化操作规范（SOP），工作严谨认真，保障检查数据精准与患者治疗安全，保持零医疗差错。</li>
+          <li><strong>患者沟通与依从性管理：</strong>引导学龄儿童患者，并与家属进行充分良好的沟通，有效缓解患者及家属焦虑，确保患者高度配合长周期复查与治疗，展示出卓越的耐受力与沟通协调技巧。</li>
+          <li><strong>业务沟通与信任建立：</strong>系统化将专业技术与沟通融合，精准分析客户潜在需求，擅长价值沟通与异议处理，建立深厚信任，提升客户转介绍率及诊所业务绩效。</li>
+        </ul>
+      </div>
+
+    </section>
+
+    <!-- 学术成果与奖项 -->
+    <section>
+      <h2 class="section-title">学术成果与荣誉奖项</h2>
+      
+      <div style="margin-bottom: 16px;">
+        <h3 style="font-size: 0.95rem; font-weight: 700; color: var(--text-main); margin-bottom: 10px;">论文发表</h3>
+        <div class="pub-card">
+          <div class="pub-title">Co-expression pattern of CD8, CXCR5 and CXCL13 in tumor microenvironment predicts favorable efficacy of immunotherapy in lung adenocarcinoma</div>
+          <div class="pub-journal">European Journal of Pharmacology (IF=4.7)</div>
+          <div class="pub-meta">署名：共一作者（排名第二）</div>
+        </div>
+
+        <div class="pub-card">
+          <div class="pub-title">《非小细胞肺癌肿瘤白细胞介素的表达模式对免疫治疗疗效和预后的作用》</div>
+          <div class="pub-journal">中山大学学报（北大核心期刊）</div>
+          <div class="pub-meta">署名：第三作者</div>
+        </div>
+      </div>
+
+      <div>
+        <h3 style="font-size: 0.95rem; font-weight: 700; color: var(--text-main); margin-bottom: 8px;">荣誉与证书</h3>
+        <ul class="exp-bullets">
+          <li>国家学业二等奖学金（两次）、校级优秀学生奖学金、优秀学员、院级组织优秀部长</li>
+          <li>大学英语六级 (CET-6)，具备良好的英文阅读、学术写作及口语交流能力</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- 联系方式 -->
+    <section>
+      <h2 class="section-title">联系方式</h2>
+      <div class="contact-grid">
+        <a href="tel:18512453229" class="contact-card">
+          <span>📞</span>
+          <span>185-1245-3229</span>
+        </a>
+        <a href="mailto:547017133@qq.com" class="contact-card">
+          <span>✉️</span>
+          <span>547017133@qq.com</span>
+        </a>
+        <div class="contact-card">
+          <span>📍</span>
+          <span>广东省广州市</span>
+        </div>
+        <div class="contact-card">
+          <span>💬</span>
+          <span>微信同手机号</span>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <p>© 2026 郭舒月 · 个人简历与作品集页面</p>
+    </footer>
+
+  </div>
+
+</body>
+</html>
