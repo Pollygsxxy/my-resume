@@ -15,6 +15,7 @@
       --border-color: #e9ecef;    /* 浅灰边框 */
       --tag-bg: #f1f3f5;          /* 标签背景色 */
       --highlight-bg: #fdf2f2;    /* 高亮标签背景 */
+      --text-highlight: #7a2e35;  /* 重点文字加粗颜色 */
       --shadow-sm: 0 2px 8px rgba(0,0,0,0.04);
       --radius: 12px;
     }
@@ -30,7 +31,7 @@
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
       background-color: var(--bg-color);
       color: var(--text-main);
-      line-height: 1.6;
+      line-height: 1.65;
       -webkit-font-smoothing: antialiased;
     }
 
@@ -38,6 +39,20 @@
       max-width: 840px;
       margin: 0 auto;
       padding: 20px 16px 60px 16px;
+    }
+
+    /* 文本视觉增强标签 */
+    .mark-text {
+      background-color: #fce8e9;
+      color: var(--text-highlight);
+      padding: 1px 5px;
+      border-radius: 4px;
+      font-weight: 600;
+    }
+
+    .bold-text {
+      color: var(--text-main);
+      font-weight: 700;
     }
 
     /* 3. 头部卡片 */
@@ -150,16 +165,16 @@
 
     .highlight-item {
       font-size: 0.9rem;
-      color: var(--text-main);
+      color: var(--text-muted);
       background-color: var(--bg-color);
       padding: 12px 14px;
       border-radius: 8px;
       border-left: 3px solid var(--accent-color);
-      line-height: 1.6;
+      line-height: 1.65;
     }
 
     .highlight-item strong {
-      color: var(--accent-color);
+      color: var(--text-highlight);
     }
 
     /* 技能标签 */
@@ -182,6 +197,7 @@
       background-color: var(--highlight-bg);
       color: var(--accent-color);
       border: 1px solid #f8d7da;
+      font-weight: 600;
     }
 
     /* 经历板块（科研 & 工作） */
@@ -224,7 +240,7 @@
       list-style: none;
       display: flex;
       flex-direction: column;
-      gap: 8px;
+      gap: 10px;
       padding-left: 0;
     }
 
@@ -233,7 +249,7 @@
       color: var(--text-muted);
       position: relative;
       padding-left: 18px;
-      line-height: 1.6;
+      line-height: 1.65;
       text-align: justify;
     }
 
@@ -335,7 +351,7 @@
         <h1>郭舒月</h1>
         <div class="title">CRA / 临床研究相关岗位 | 基础医学硕士</div>
         <p class="bio">
-          阳光务实，严谨细致，具备良好的自学与探求问题的思维。硕士期间的数据分析与科研训练塑造了我严谨的数据敏感度与逻辑分析能力；以往的眼科视光机构工作经历培养了我优秀的人际沟通、团队协作及服务意识。能够快速适应新环境，正积极补充临床试验相关知识，立志在临床研究领域深耕发展。
+          阳光务实，严谨细致，具备良好的自学与探求问题的思维。硕士期间的数据分析与科研训练塑造了我严谨的<span class="bold-text">数据敏感度与逻辑分析能力</span>；以往的眼科视光机构工作经历培养了我优秀的<span class="bold-text">人际沟通、团队协作及服务意识</span>。能够快速适应新环境，正积极补充临床试验相关知识，立志在临床研究领域深耕发展。
         </p>
         <div class="education-badges">
           <span class="edu-badge">暨南大学 · 基础医学硕士 (病理学)</span>
@@ -349,13 +365,13 @@
       <h2 class="section-title">核心亮点 Highlights</h2>
       <ul class="highlight-list">
         <li class="highlight-item">
-          <strong>扎实的临床数据分析与科研转化能力：</strong>熟练掌握 R语言、SPSS、GraphPad、X-TILE 等软件，具备依托临床患者试验数据与多组学数据进行预测模型构建、数据清洗与统计分析的实操经验（发表SCI 1篇、北大核心1篇）。
+          <strong>扎实的临床数据分析与科研转化能力：</strong>熟练掌握 <span class="mark-text">R语言</span>、<span class="mark-text">SPSS</span>、GraphPad、X-TILE 等软件，具备依托临床患者试验数据与多组学数据进行<span class="bold-text">预测模型构建、数据清洗与统计分析</span>的实操经验（发表SCI 1篇、北大核心1篇）。
         </li>
         <li class="highlight-item">
-          <strong>丰富的患者沟通与依从性管理经验：</strong>近2年眼科视光中心一线服务经验，精通眼科精密检查SOP，擅长与患者及家属进行高效价值沟通、缓解患者焦虑并提升配合度，具备良好的服务意识与人际协调能力。
+          <strong>丰富的患者沟通与依从性管理经验：</strong>近2年眼科视光中心一线服务经验，精通<span class="mark-text">眼科精密检查SOP</span>，擅长与患者及家属进行<span class="bold-text">高效价值沟通、缓解患者焦虑并提升配合度</span>，具备良好的服务意识与人际协调能力。
         </li>
         <li class="highlight-item">
-          <strong>严谨的医学科研背景与高执行力：</strong>基础医学（病理学）专业背景，熟练掌握多项生物医学实验技能及科研绘图，具备较强的自学能力、逻辑分析能力与严谨的工作态度。
+          <strong>严谨的医学科研背景与高执行力：</strong>基础医学（病理学）专业背景，熟练掌握多项生物医学实验技能及科研绘图，具备较强的<span class="bold-text">自学能力、逻辑分析能力与严谨的工作态度</span>。
         </li>
       </ul>
     </section>
@@ -377,7 +393,7 @@
       </div>
     </section>
 
-    <!-- 科研经历（针对CRA深度扩充） -->
+    <!-- 科研经历 -->
     <section>
       <h2 class="section-title">科研经历与数据分析</h2>
       
@@ -388,15 +404,15 @@
         </div>
         <div class="exp-sub">硕士课题 · 核心研究人员</div>
         <ul class="exp-bullets">
-          <li><strong>临床数据清洗与模型构建：</strong>依托已有的受试者队列临床随访与多组学数据进行转化研究，对多维度的临床患者数据进行规范化清洗、整理与统计，建立预测疗效的风险模型，辅助临床进行患者分层分析。</li>
-          <li><strong>机制探讨与转化方案辅助：</strong>聚焦患者免疫治疗响应差异，筛选敏感干预药物并验证其潜在机制，为临床联合用药及方案优化提供转化医学数据支持。</li>
-          <li><strong>数据分析软件应用：</strong>熟练运用 R语言、SPSS、X-TILE、GraphPad 等数据分析软件处理临床课题数据，并使用 AI、PS、Origin 等软件进行高质量科研绘图。</li>
+          <li><strong>临床数据清洗与模型构建：</strong>依托已有的受试者队列临床随访与多组学数据进行转化研究，对多维度的临床患者数据进行<span class="mark-text">规范化清洗、整理与统计</span>，建立预测疗效的<span class="bold-text">风险模型</span>，辅助临床进行患者分层分析。</li>
+          <li><strong>机制探讨与转化方案辅助：</strong>聚焦患者免疫治疗响应差异，<span class="bold-text">筛选敏感干预药物</span>并验证其潜在机制，为临床联合用药及方案优化提供<span class="mark-text">转化医学数据支持</span>。</li>
+          <li><strong>数据分析软件应用：</strong>熟练运用 <span class="mark-text">R语言</span>、<span class="mark-text">SPSS</span>、X-TILE、GraphPad 等数据分析软件处理临床课题数据，并使用 AI、PS、Origin 等软件进行高质量科研绘图。</li>
         </ul>
       </div>
 
     </section>
 
-    <!-- 工作经历（针对CRA胜任力扩充） -->
+    <!-- 工作经历 -->
     <section>
       <h2 class="section-title">工作经历</h2>
       
@@ -407,9 +423,9 @@
         </div>
         <div class="exp-sub">沈阳爱瑞视眼科</div>
         <ul class="exp-bullets">
-          <li><strong>规范化检查与SOP执行：</strong>精通塑形术前全套精密检查，严格遵循医疗标准化操作规范（SOP），工作严谨认真，保障检查数据精准与患者治疗安全，保持零医疗差错。</li>
-          <li><strong>患者沟通与依从性管理：</strong>引导学龄儿童患者，并与家属进行充分良好的沟通，有效缓解患者及家属焦虑，确保患者高度配合长周期复查与治疗，展示出卓越的耐受力与沟通协调技巧。</li>
-          <li><strong>业务沟通与信任建立：</strong>系统化将专业技术与沟通融合，精准分析客户潜在需求，擅长价值沟通与异议处理，建立深厚信任，提升客户转介绍率及诊所业务绩效。</li>
+          <li><strong>规范化检查与SOP执行：</strong>精通塑形术前全套精密检查，严格遵循<span class="mark-text">医疗标准化操作规范 (SOP)</span>，工作严谨认真，保障检查数据精准与患者治疗安全，保持<span class="bold-text">零医疗差错</span>。</li>
+          <li><strong>患者沟通与依从性管理：</strong>引导学龄儿童患者，并与家属进行充分良好的沟通，有效<span class="bold-text">缓解患者及家属焦虑</span>，确保患者<span class="mark-text">高度配合长周期复查与治疗</span>，展示出卓越的耐受力与沟通协调技巧。</li>
+          <li><strong>业务沟通与信任建立：</strong>系统化将专业技术与沟通融合，精准分析客户潜在需求，擅长<span class="bold-text">价值沟通与异议处理</span>，建立深厚信任，提升<span class="bold-text">客户转介绍率</span>及诊所业务绩效。</li>
         </ul>
       </div>
 
@@ -424,21 +440,21 @@
         <div class="pub-card">
           <div class="pub-title">Co-expression pattern of CD8, CXCR5 and CXCL13 in tumor microenvironment predicts favorable efficacy of immunotherapy in lung adenocarcinoma</div>
           <div class="pub-journal">European Journal of Pharmacology (IF=4.7)</div>
-          <div class="pub-meta">署名：共一作者（排名第二）</div>
+          <div class="pub-meta">署名：<span class="bold-text">共一作者（排名第二）</span></div>
         </div>
 
         <div class="pub-card">
           <div class="pub-title">《非小细胞肺癌肿瘤白细胞介素的表达模式对免疫治疗疗效和预后的作用》</div>
           <div class="pub-journal">中山大学学报（北大核心期刊）</div>
-          <div class="pub-meta">署名：第三作者</div>
+          <div class="pub-meta">署名：<span class="bold-text">第三作者</span></div>
         </div>
       </div>
 
       <div>
         <h3 style="font-size: 0.95rem; font-weight: 700; color: var(--text-main); margin-bottom: 8px;">荣誉与证书</h3>
         <ul class="exp-bullets">
-          <li>国家学业二等奖学金（两次）、校级优秀学生奖学金、优秀学员、院级组织优秀部长</li>
-          <li>大学英语六级 (CET-6)，具备良好的英文阅读、学术写作及口语交流能力</li>
+          <li><span class="mark-text">国家学业二等奖学金（两次）</span>、校级优秀学生奖学金、优秀学员、院级组织优秀部长</li>
+          <li><span class="bold-text">大学英语六级 (CET-6)</span>，具备良好的英文阅读、学术写作及口语交流能力</li>
         </ul>
       </div>
     </section>
